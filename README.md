@@ -146,3 +146,4 @@ One thing to keep in mind when using the spin function this way. If you want to 
 ## License
 
 MIT © [Ahmed El Sayegh](mailto:ahmedelsayegh7@gmail.com)
+# ngx-wheel

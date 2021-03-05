@@ -1,36 +1,34 @@
-
-<h3>Press the wheel to land on a random prize</h3>
-<h3>Or press the button to land on the corresponding prize</h3>
 <ngx-wheel
-  #wheel
-  width='400'
-  height='400'
-  spinDuration='8'
-  [items]='items'
-  [innerRadius]='20'
-  [spinAmount]='10'
-  [textOrientation]='textOrientation'
-  [textAlignment]='textAlignment'
-  pointerStrokeColor='black'
-  pointerFillColor='gold'
-  [idToLandOn]='idToLandOn'
-  (onSpinStart)='before()'
-  (onSpinComplete)='after()'
-></ngx-wheel>
+#wheel width='400'
+height='400'
+spinDuration='10'
+[items]='items'
+[innerRadius]='50'
+[spinAmount]='11'
+[textOrientation]='textOrientation'
+[textAlignment]='textAlignment'
+pointerStrokeColor='black'
+pointerFillColor='gold'
+[idToLandOn]='idToLandOn'
+(onSpinStart)='before()'
+(onSpinComplete)='after()'>
+</ngx-wheel>
+
 <div class="reset">
   <button (click)="reset()">Reset</button>
 </div>
-<div class="buttons">
-  <button (click)="spin(0)">Prize 0</button>
-  <button (click)="spin(1)">Prize 1</button>
-  <button (click)="spin(2)">Prize 2</button>
-  <button (click)="spin(3)">Prize 3</button>
-  <button (click)="spin(4)">Prize 4</button>
-  <button (click)="spin(5)">Prize 5</button>
-  <button (click)="spin(6)">Prize 6</button>
-  <button (click)="spin(7)">Prize 7</button>
-  <button (click)="spin(8)">Prize 8</button>
-  <button (click)="spin(9)">Prize 9</button>
-  <button (click)="spin(10)">Prize 10</button>
-  <button (click)="spin(11)">Prize 11</button>
+
+<form (ngSubmit)="onSubmit()" #formName="ngForm">
+  <h2>Add a new player</h2>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="test" [(ngModel)]="nameModel" name="name" id="name" #name="ngModel" (ngModelChange)="valuechange($event)"
+     required>
+     <button  class="btn btn-success" [disabled]="!formName.form.valid" >Add Player</button>
+  </div>
+
+</form>
+<!-- <pre>{{seed2 | json}}</pre> -->
+
+<div class="buttons" *ngFor="let seed of seed2">
+  <button (click)="delete(seed)">{{seed}}</button>
 </div>

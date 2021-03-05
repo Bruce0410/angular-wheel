@@ -42,7 +42,7 @@ export class NgxWheelComponent implements OnInit, AfterViewInit {
   @Input() disableSpinOnClick: boolean;
   @Input() textOrientation: TextOrientation
   @Input() textAlignment: TextAlignment
-  
+
 
   @Output() onSpinStart: EventEmitter<any> = new EventEmitter();
   @Output() onSpinComplete: EventEmitter<any> = new EventEmitter();
@@ -55,9 +55,11 @@ export class NgxWheelComponent implements OnInit, AfterViewInit {
     this.wheel.stopAnimation(false);
     this.wheel.rotationAngle = 0;
     this.wheel.ctx.clearRect(0, 0, this.wheel.ctx.canvas.width, this.wheel.ctx.canvas.height);
-    this.isSpinning = false 
-    this.completedSpin = false 
-    this.ngAfterViewInit()
+    this.isSpinning = false
+    this.completedSpin = false;
+
+
+    this.ngAfterViewInit();
   }
 
   ngOnInit(): void {
@@ -93,7 +95,8 @@ export class NgxWheelComponent implements OnInit, AfterViewInit {
         duration: this.spinDuration, // How long the animation is to take in seconds.
         spins: this.spinAmount  // The number of complete 360 degree rotations the wheel is to do.
       }
-    })
+    });
+
     // @ts-ignore
     TweenMax.ticker.addEventListener("tick", this.drawPointer.bind(this));
   }
