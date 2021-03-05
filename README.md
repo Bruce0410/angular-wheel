@@ -1,4 +1,9 @@
 # ngx-wheel
+git remote -v
+
+git remote set-url origin https://github.com/Bruce0410/angular-wheel.git
+
+git push
 
 ## [Click here for demo](https://ngx-wheel.web.app/)
 
