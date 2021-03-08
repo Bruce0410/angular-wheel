@@ -4,7 +4,10 @@ git remote -v
 git remote set-url origin https://github.com/Bruce0410/angular-wheel.git
 
 git push
-
+#
+git add . 
+ng build --prod --base-href=/angular-wheel/
+npx ngh --dir=dist/angular-wheel --no-silent
 ## [Click here for demo](https://ngx-wheel.web.app/)
 
 [![npm version](https://badge.fury.io/js/ngx-wheel.svg)](https://badge.fury.io/js/ngx-wheel)
