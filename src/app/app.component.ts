@@ -30,9 +30,10 @@ export class AppComponent {
     //location.reload();
   }
 
-  delete(index) {
-    this.seed2.splice(index, 1);
-    this.init();
+  delete(index,i) {
+    console.log(i);
+    this.seed2.splice(i, 1);
+     this.init();
   }
 
   init() {
@@ -70,6 +71,17 @@ export class AppComponent {
     // alert('Your wheel is about to spin')
   }
 
+  groupA(){
+    this.seed2.splice(0,this.seed2.length,'David', 'Eric Yu', 'Erin', 'Hungchih', 'Jack Lo', 'Ken Tseng');
+    this.nameModel = '';
+    this.init()
+  }
+
+  groupB(){
+    this.seed2.splice(0,this.seed2.length,'Johnson Lee', 'Richard Chang');
+    this.nameModel = '';
+    this.init()
+  }
   // async spin(prize) {
   //   this.idToLandOn = prize
   //   await new Promise(resolve => setTimeout(resolve, 0));

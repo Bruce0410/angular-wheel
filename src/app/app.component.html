@@ -1,9 +1,10 @@
+<h3></h3>
 <ngx-wheel
 #wheel width='400'
 height='400'
 spinDuration='10'
 [items]='items'
-[innerRadius]='50'
+[innerRadius]='30'
 [spinAmount]='11'
 [textOrientation]='textOrientation'
 [textAlignment]='textAlignment'
@@ -14,21 +15,28 @@ pointerFillColor='gold'
 (onSpinComplete)='after()'>
 </ngx-wheel>
 
-<div class="reset">
+<div style="padding: 20px;" class="reset">
   <button (click)="reset()">Reset</button>
 </div>
 
+<div >
 <form (ngSubmit)="onSubmit()" #formName="ngForm">
-  <h2>Add a new player</h2>
+  <h2 style="padding-left: 20px;">Add a new player</h2>
   <div class="form-group">
-    <input type="text" class="form-control" placeholder="test" [(ngModel)]="nameModel" name="name" id="name" #name="ngModel" (ngModelChange)="valuechange($event)"
+    <input style="padding-left: 20px;" type="text" class="form-control" placeholder="test" [(ngModel)]="nameModel" name="name" id="name" #name="ngModel" (ngModelChange)="valuechange($event)"
      required>
-     <button  class="btn btn-success" [disabled]="!formName.form.valid" >Add Player</button>
+     <button style="padding-left: 20px;" class="btn btn-success" [disabled]="!formName.form.valid" >Add Player</button>
   </div>
 
 </form>
 <!-- <pre>{{seed2 | json}}</pre> -->
 
-<div class="buttons" *ngFor="let seed of seed2">
-  <button (click)="delete(seed)">{{seed}}</button>
+<div class="buttons">
+  <button  (click)="groupA()">AP</button>
+  <button  (click)="groupB()">Infra</button>
+</div>
+
+<div class="buttons" *ngFor="let seed of seed2,let i = index;">
+  <button  (click)="delete(seed,i)">{{seed}}</button>
+</div>
 </div>
